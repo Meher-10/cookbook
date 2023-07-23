@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="signin.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='signIn.css') }}">
+    <title>cookbook</title>
+</head>
+<body>
+    <h1>cookbook</h1>
+    <section>
+        <div class="form box">
+            <div class="form-value">
+                <form id="signInForm">
+                    <h2>Sign in</h2>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" name="username" required>
+                        <label for="">Username</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password" required>
+                        <label for="">Password</label>
+                    </div>
+                    <div class="forget">
+                        <label for="">Remember me<input type="checkbox"> <a href="#">Forget Password</a> </label>
+                    </div>
+                    <div>
+                        <button type="submit">Sign in</button>
+                        <div class="register">
+                            <p>Don't have an account? <a href="#">Create Account</a></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.getElementById("signInForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const username = formData.get("username");
+            const password = formData.get("password");
+            console.log(username, password)
+            // You can modify the API URL if needed
+            const apiUrl = "/login";
+
+            // Make the API call using Axios
+            axios.get(apiUrl, {
+                params: {
+                    username: username,
+                    password: password
+                }
+            })
+            .then(response => {
+                // Handle the successful response here
+                console.log(response.data);
+                alert("Login successful!");
+            })
+            .catch(error => {
+                // Handle errors here
+                console.error(error);
+                alert("Login failed. Please check your credentials!");
+            });
+        });
+    </script>
+</body>
+</html>
