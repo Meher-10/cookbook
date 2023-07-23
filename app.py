@@ -1,4 +1,4 @@
-from flask import Flask,Blueprint,render_template, request, redirect, url_for, session, flash, jsonify, make_response
+from flask import Flask,Blueprint,render_template, request, redirect, url_for, session, flash, jsonify
 from users.routes import routes_bp
 
 app = Flask(__name__)
