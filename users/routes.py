@@ -14,7 +14,7 @@ def save_cred():
         validPass = is_valid_password(password)
 
         if validUser:
-            raise Exception("INVALID USER")
+            raise Exception("INVALID USERNAME")
         if not validPass:
             raise Exception("The password must contain one uppercase letter, one digit, one special character, and have a minimum length of 8 characters.")
 
