@@ -1,0 +1,147 @@
+<!-- upload.html -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Video Upload</title>
+</head>
+<body>
+    <h1>Upload Video</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <label>Title:</label><br>
+        <input type="text" name="title" required><br>
+        <label>Description:</label><br>
+        <textarea name="description" required></textarea><br>
+        <label>Tags:</label><br>
+        <input type="checkbox" name="tags" value="breakfast">Breakfast<br>
+        <input type="checkbox" name="tags" value="lunch">Lunch<br>
+        <input type="checkbox" name="tags" value="dinner">Dinner<br>
+        <input type="checkbox" name="tags" value="starter">Starter<br>
+        <input type="checkbox" name="tags" value="salad">Salad<br>
+        <input type="checkbox" name="tags" value="soup">Soup<br>
+        <input type="checkbox" name="tags" value="drinks">Drinks<br>
+        <input type="checkbox" name="tags" value="dessert">Dessert<br>
+        <label>Video File:</label><br>
+        <input type="file" name="video_file" accept="video/*" required><br>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Video Upload</title>
+  <link rel="stylesheet" href="../static/addrecipe.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="myv">Share Your Recipies</h1>
+    <div class="alert-container" id="alertContainer"></div>
+    <form method="POST" enctype="multipart/form-data" class="ele">
+
+      <div class="flexcontainer">
+        <div class="fdcontainer">
+          <div>
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Enter the catchiest title you can think of!" required />
+          </div>
+
+          <div>
+            <label>Description</label>
+            <textarea rows="8" cols="50" name="desc" placeholder="Enter the description of your magnificient recipe!"
+              required></textarea>
+          </div>
+        </div>
+
+
+        <div class="inputscontainer">
+          <p>Select the applicable Categories</p>
+          <div class="ct">
+            <div><input type="checkbox" name="tags" value="Breakfast"> Breakfast</div>
+            <div><input type="checkbox" name="tags" value="Lunch"> Lunch</div>
+            <div><input type="checkbox" name="tags" value="Dinner"> Dinner</div>
+
+            <!-- Repeat the same for other tags -->
+
+          </div>
+          <div class="ct">
+            <div><input type="checkbox" name="tags" value="Starter"> Starter</div>
+            <div><input type="checkbox" name="tags" value="Soup"> Soup</div>
+            <div><input type="checkbox" name="tags" value="Salad"> Salad</div>
+          </div>
+
+          <div class="ct">
+            <div><input type="checkbox" name="tags" value="Drinks"> Drinks</div>
+            <div><input type="checkbox" name="tags" value="Dessert"> Dessert</div>
+          </div>
+
+          <div class="final">
+            <label>Video File:</label>
+            <input type="file" name="video_file" accept="video/*" value="Hi" required /><br />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="button">
+        <button type="submit">Upload</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form");
+      form.addEventListener("submit", handleSubmit);
+    });
+  
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+  
+      fetch("/upload", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Process the response data from the server
+          if (data.success) {
+            // Show success message
+            alert("Video uploaded successfully!");
+            window.location.href = "/displayvideos";
+          } else {
+            // Show error message
+            alert("Error uploading video. Please try again.");
+          }
+        })
+        .catch((error) => {
+          // Show error message if fetch fails
+          alert("An unexpected error occurred. Please try again later.");
+        });
+    }
+  
+    function showAlert(type, message) {
+      const alertContainer = document.getElementById("alertContainer");
+      const alert = document.createElement("div");
+      alert.className = `alert ${type}`;
+      alert.textContent = message;
+      alertContainer.appendChild(alert);
+      setTimeout(() => {
+        alertContainer.removeChild(alert);
+      }, 5000); // Remove the alert after 5 seconds
+    }
+  </script>
+  
+</body>
+
+</html>

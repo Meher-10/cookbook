@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg,#12c2e9,#c471ed,#f64f59);
+    background-image: url(https://img.freepik.com/premium-photo/recipe-italian-dessert-tiramisu-with-all-necessary-ingredients-amine-against-white-background-copy-top-view_127032-1574.jpg?w=1060);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin: 8rem;
+}
+.card{
+    height: 100%;
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+}
+.card h5{
+    
+    color:black;
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin: 12px 0;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+
+}
+form input{
+    border-radius: 20px;
+    border: none;
+    margin: 12px 0;
+    height: 38px;
+    width: 227px;
+    padding: 0 12px;
+    outline: none;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    color: white;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+
+}
+.neo-btn{
+    border: none;
+    width: 200px;
+    height: 35px;
+    color: white;
+    margin: 18px 0;
+    cursor: pointer;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.18);
+
+}
+.neo-btn:hover{
+    background-color:palevioletred;
+}
+.card p{
+    font-size: 12px;
+    color: grey;
+    
+}
+
+.card p  a{
+    text-decoration:none ;
+    color: black;
+
+}
+.partition{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+
+}
+ hr{
+    width: 40%;
+ }
+ /*.other-login-btn{
+    text-decoration: none;
+    font-size: 14px;
+    width: 200px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+ }
+
+ .other-login-btn:hover{
+    background-color: rgb(57,60,255);
+ }*/

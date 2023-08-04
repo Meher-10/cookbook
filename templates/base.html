@@ -1,31 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!DOCTYPE html> 
+<html>
+    <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>home</title>
-    <!-- <link rel="stylesheet" href="index.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <title> Home </title>
+    <!-- <link rel="stylesheet" href="base.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
 </head>
 <body>
-    <nav>
-        <input type="checkbox" id="select">
-        <label for="select" class="selectbtn">
-            <ion-icon name="menu-outline" class="select"></ion-icon>
-
-        </label>
-       <label for=""  class="logo">COOK BOOK</label>
-       <ul>
-        <li><a class="touch" href="/">Home</a></li>
-        <li><a href="/signUp">sign up</a></li>
-        <li><a href="/signIn">sign in</a></li>
-        <li><a href="#">about</a></li>
-        <li><a href="#">Logout</a></li>
-       </ul>
-    </nav>
-    
+    <div class="hero">
+        <video autoplay loop muted plays-inline class="back-video">
+            <source src="../static/new.mp4" type="video/mp4"> 
+        </video>
+        <nav>
+            <img src="https://clipart-library.com/img/1695183.png" class="logo">
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/userregister">REGISTER</a></li>
+                <li><a href="/logIn">LOGIN</a></li>
+                <li><a href="/about">ABOUT US</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h3>COOK BOOK</h3> 
+            <!-- <a href="register.html">Sign Up</a> -->
+        </div>
+        
+    </div>
 </body>
 </html>

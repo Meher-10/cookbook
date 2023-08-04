@@ -1,0 +1,28 @@
+<!-- video_details.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ video.title }}</title>
+</head>
+<body>
+    <h1>{{ video.title }}</h1>
+    <p>{{ video.description }}</p>
+    <video width="640" height="480" controls>
+        <source src="/static/uploads/{{ video.filename }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h3>Tags: {{ video.tags|join(', ') }}</h3>
+    <h3>Average Rating: {{ video.avg_rating }}</h3>
+    
+    <h3>Your Rating:</h3>
+    <form method="POST" action="/rate/{{ video._id }}">
+        <input type="radio" name="rating" value="1">1
+        <input type="radio" name="rating" value="2">2
+        <input type="radio" name="rating" value="3">3
+        <input type="radio" name="rating" value="4">4
+        <input type="radio" name="rating" value="5">5
+        <button type="submit">Rate</button>
+    </form>
+</body>
+</html>
